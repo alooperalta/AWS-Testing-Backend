@@ -1,11 +1,12 @@
 console.log("Backend Started .......");
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const cors = require("cors");
-const mognodb = require("mongodb");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const YAML = require('yamljs');
+const swaggerUI = require('swagger-ui-express');
+const swaggerJsDocs= YAML.load('./api.yaml');
 
 // dotenv.config();
 dotenv.config();
@@ -19,11 +20,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const port = process.env.PORT;
+require("./src/mongodb/index");
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
+app.use("/api/v1", require("./src/APIS/view/TEST"));
 
-//connecting the mongoose
-mongoose.connect(process.env.DB_CONNECTION, () => {
-  console.log("MongoDB Connected");
-});
 
 //app file
 app.get("/", (req, res) => {
