@@ -31,7 +31,52 @@ paths:
         400:
           description: Undocumented
         500:
-          description: Internal Server Error 
+          description: Internal Server Error
+  /api/v1/auth/signup:
+    post:
+      tags:
+        - Auth
+      summary : Signup User
+      description: User Authentication which included login and signup
+      parameters:
+        - name: authBody
+          in: body
+          schema:
+            type: object
+            properties:
+              name: 
+                type: string
+              emailUser:
+                type: string
+              userName:
+                type: string
+              phoneNumber:
+                type: string
+              password: 
+                type: string
+      responses:  
+        200:
+          description: SUCCESS 
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Auth
+      summary : Login User
+      description: User Authentication which included login and signup
+      parameters:
+        - name: authBody
+          in: body
+          schema:
+            type: object
+            properties:
+              emailUser: 
+                type: string
+              password:
+                type: string
+      responses:  
+        200:
+          description: SUCCESS 
+           
   # v1/test/postQuestion/{testID}:
   #   post:
   #     tags: Test

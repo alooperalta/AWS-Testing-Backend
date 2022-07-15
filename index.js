@@ -23,6 +23,7 @@ const port = process.env.PORT;
 require("./src/mongodb/index");
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 app.use("/api/v1", require("./src/APIS/view/TEST"));
+app.use("/api/v1/auth", require("./src/APIS/view/Auth"));
 
 
 //app file

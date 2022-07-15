@@ -9,6 +9,7 @@ module.exports = async (password) => {
   const generateSalt = await bcrypt.genSalt(saltRounds);
 
   const generateHash = await bcrypt.hash(password, generateSalt);
+  
 
   // console.log(generateSalt);
   // console.log(generateHash);
