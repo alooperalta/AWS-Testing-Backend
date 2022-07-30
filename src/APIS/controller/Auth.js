@@ -67,7 +67,7 @@ const signup = async (req, res, next) => {
       });
     } else {
       //checking if the user already exists
-      const findUser = await user.findOne({ userName: userName });
+      const findUser = await user.findOne({$or: [{userName: userName}, {emailUser: emailUser}] });
       if (findUser) {
         res.status(400).json({
           status: false,
