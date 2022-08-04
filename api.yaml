@@ -37,7 +37,7 @@ paths:
       tags:
         - Auth
       summary : Signup User
-      description: User Authentication which included login and signup
+      description: Singup user which takes name, email, and password
       parameters:
         - name: authBody
           in: body
@@ -58,7 +58,7 @@ paths:
       tags:
         - Auth
       summary : Login User
-      description: User Authentication which included login and signup
+      description: Login User which takes email and password for the user
       parameters:
         - name: authBody
           in: body
