@@ -92,6 +92,7 @@ const signup = async (req, res, next) => {
             status: true,
             message: "User created",
             data: createUser,
+            token: await createJWT(createUser),
             count: await user.count(),
           });
         }
