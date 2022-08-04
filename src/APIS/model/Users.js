@@ -14,21 +14,6 @@ const users = new Schema(
       required: true,
       min: 8,
     },
-    userName: {
-      type: String,
-      required: true,
-      min: 3,
-    },
-    phoneNumber: {
-      type: String,
-      required: true,
-      min: 10,
-    },
-    password: {
-      type: String,
-      required: true,
-      min: 8,
-    },
     passwordHash: {
       type: String,
       required: true,

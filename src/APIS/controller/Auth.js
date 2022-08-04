@@ -19,7 +19,6 @@ const login = async (req, res, next) => {
     } else {
       //fidning the user
       const findUser = await user.findOne({ emailUser: emailUser });
-      console.log(findUser.passwordHash);
       if (!findUser) {
         res.status(404).json({
           status: false,
@@ -54,11 +53,11 @@ const login = async (req, res, next) => {
 //signup user
 const signup = async (req, res, next) => {
   try {
-    const { name, emailUser, password, phoneNumber, userName } = req.body;
-    const userData = { name, emailUser, password, phoneNumber, userName };
+    const { name, emailUser, password} = req.body;
+    const userData = { name, emailUser, password };
     //checking the results frim result JOI library
     const result = authValidator(
-      "name emailUser password phoneNumber userName",
+      "name emailUser password",
       userData
     );
     if (!result) {
@@ -68,7 +67,7 @@ const signup = async (req, res, next) => {
       });
     } else {
       //checking if the user already exists
-      const findUser = await user.findOne({$or: [{userName: userName}, {emailUser: emailUser}] });
+      const findUser = await user.findOne({emailUser: emailUser});
       if (findUser) {
         res.status(400).json({
           status: false,

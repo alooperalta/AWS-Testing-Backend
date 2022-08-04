@@ -48,10 +48,6 @@ paths:
                 type: string
               emailUser:
                 type: string
-              userName:
-                type: string
-              phoneNumber:
-                type: string
               password: 
                 type: string
       responses:  
