@@ -1,7 +1,7 @@
 swagger: "2.0.0"
 info:
-  title: Test API Documentation (Prodigal AI)
-  description: Api Documentation for NFT Marketplace
+  title: API Documentation (Prodigal AI)
+  description: Api Documentation for NFT Backtesting Simulator Application.
   version: 1.0.0
   contact:
     email: choudharysidharth082000@gmail.com
